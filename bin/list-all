@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -e
+
+git ls-remote --tags --refs "https://github.com/mongodb-js/mongosh" | grep -o 'refs/tags/.*' | cut -d/ -f3- | sed 's/^v//' | xargs echo
