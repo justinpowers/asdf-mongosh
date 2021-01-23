@@ -12,17 +12,21 @@
 - [Install](#install)
 - [License](#license)
 
-# Dependencies
+# Plugin Dependencies
 
 - `curl`, `git` - for mongosh downloads from upstream releases
 - `bash` - asdf-vm is built on this
+
+# mongosh Dependencies
+
+None
 
 # Install
 
 Plugin:
 
 ```shell
-asdf plugin add mongosh https://github.com/itspngu/asdf-mongosh.git
+asdf plugin add mongosh https://github.com/itspngu/asdf-mongosh
 ```
 
 mongosh:

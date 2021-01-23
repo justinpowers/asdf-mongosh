@@ -7,7 +7,7 @@ on:
     paths-ignore:
       - "**.md"
   schedule:
-    - cron: "0 0 * * *" # daily at midnight
+    - cron: "0 0 * * 6" # saturday at midnight
   workflow_dispatch:
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
     name: asdf plugin test
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ ubuntu-latest, macos-latest ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: asdf_plugin_test
