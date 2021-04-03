@@ -12,7 +12,8 @@ set -e
 
 (
   mv "$ASDF_DOWNLOAD_PATH" "$ASDF_INSTALL_PATH" &&
-    chmod +x "$ASDF_INSTALL_PATH/bin/*" &&
+    ls -lah "$ASDF_INSTALL_PATH" &&
+    chmod -R +x "$ASDF_INSTALL_PATH/bin" &&
     echo "mongosh has been installed." &&
     exit 0
 ) || (
