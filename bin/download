@@ -19,7 +19,7 @@ esac
 
 (
   curl -fsSL "https://github.com/mongodb-js/mongosh/releases/download/v$ASDF_INSTALL_VERSION/$RELEASE_FILENAME" |
-    tar xzf - -C "$ASDF_DOWNLOAD_PATH" &&
+    tar xf - -C "$ASDF_DOWNLOAD_PATH" &&
     exit 0
 ) || (
   echo "Download failed" 1>&2 &&
