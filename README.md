@@ -6,21 +6,22 @@
 
 </div>
 
-# Contents
+## Contents
 
-- [Dependencies](#plugin-dependencies)
+- [Plugin Dependencies](#plugin-dependencies)
+- [mongosh Dependencies](#mongosh-dependencies)
 - [Install](#install)
 - [License](#license)
 
-# Plugin Dependencies
+## Plugin Dependencies
 
 - `curl`, `git` - for mongosh downloads from upstream releases
 
-# mongosh Dependencies
+## mongosh Dependencies
 
 None
 
-# Install
+## Install
 
 Plugin:
 
@@ -47,6 +48,6 @@ usage instructions of the included tools.
 Check the [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
 install & manage versions.
 
-# License
+## License
 
 See [LICENSE](LICENSE)
