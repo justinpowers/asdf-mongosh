@@ -12,9 +12,7 @@ set -e
 
 (
   mv "$ASDF_DOWNLOAD_PATH/bin" "$ASDF_INSTALL_PATH/$ASDF_INSTALL_VERSION" &&
-    ls -lah "$ASDF_INSTALL_PATH/$ASDF_INSTALL_VERSION" &&
     chmod -R +x "$ASDF_INSTALL_PATH/$ASDF_INSTALL_VERSION" &&
-    [ "$ASDF_INSTALL_VERSION" == "$(mongosh --version)" ] &&
     echo "mongosh has been installed."
 ) || (
   rm -rf "${ASDF_INSTALL_PATH:?}/$ASDF_INSTALL_VERSION" "$ASDF_DOWNLOAD_PATH" &&
