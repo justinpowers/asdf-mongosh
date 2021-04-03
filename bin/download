@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 set -e
 
-[ -n "$ASDF_INSTALL_VERSION" ] || (echo "Missing ASDF_INSTALL_VERSION" 1>&2 && exit 1)
-[ -n "$ASDF_DOWNLOAD_PATH" ] || (echo "Missing ASDF_DOWNLOAD_PATH" 1>&2 && exit 1)
+: "${ASDF_INSTALL_VERSION:?"Missing ASDF_INSTALL_VERSION"}"
+: "${ASDF_DOWNLOAD_PATH:?"Missing ASDF_DOWNLOAD_PATH"}"
 
 case "$(uname -s)" in
   "Darwin")

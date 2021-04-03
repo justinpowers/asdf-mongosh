@@ -1,11 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 set -e
 
-[ -n "$ASDF_INSTALL_PATH" ] || (echo "Missing ASDF_INSTALL_PATH" 1>&2 && exit 1)
-[ "$ASDF_INSTALL_TYPE" != "version" ] && (echo "asdf-mongosh supports release installs only" 1>&2 && exit 1)
+: "${ASDF_INSTALL_PATH:?"Missing ASDF_INSTALL_PATH"}"
+: "${ASDF_INSTALL_TYPE:?"asdf-mongosh supports release installs only"}"
 
-# shellcheck source=bin/download
+: "${ASDF_DOWNLOAD_PATH:?"Missing ASDF_DOWNLOAD_PATH"}"
+
+# shellcheck source=SCRIPTDIR/download
 [ -f "$ASDF_DOWNLOAD_PATH/mongosh" ] || . "$(dirname "$0")/download"
 
 (
