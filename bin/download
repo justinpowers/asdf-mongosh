@@ -23,5 +23,6 @@ esac
     exit 0
 ) || (
   echo "Download failed" 1>&2 &&
+    rm -rf "$ASDF_DOWNLOAD_PATH" &&
     exit 1
 )
