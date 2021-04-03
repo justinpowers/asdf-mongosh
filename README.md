@@ -1,6 +1,6 @@
 <div align="center">
 
-# asdf-mongosh ![Build](https://github.com/itspngu/asdf-mongosh/workflows/Build/badge.svg) ![Lint](https://github.com/itspngu/asdf-mongosh/workflows/Lint/badge.svg)
+# asdf-mongosh ![CI](https://github.com/itspngu/asdf-mongosh/workflows/CI/badge.svg) ![Lint](https://github.com/itspngu/asdf-mongosh/workflows/Lint/badge.svg)
 
 [mongosh](https://github.com/mongodb-js/mongosh) plugin for the [asdf version manager](https://asdf-vm.com).
 
@@ -9,17 +9,12 @@
 ## Contents
 
 - [Plugin Dependencies](#plugin-dependencies)
-- [mongosh Dependencies](#mongosh-dependencies)
 - [Install](#install)
 - [License](#license)
 
 ## Plugin Dependencies
 
 - `curl`, `git` - for mongosh downloads from upstream releases
-
-## mongosh Dependencies
-
-None
 
 ## Install
 
