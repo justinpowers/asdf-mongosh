@@ -11,13 +11,13 @@ set -e
 [ -f "$ASDF_DOWNLOAD_PATH" ] || . "$(dirname "$0")/download"
 
 (
-  mv "$ASDF_DOWNLOAD_PATH/$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH" &&
-    ls -lah "$ASDF_INSTALL_PATH" &&
-    chmod -R +x "$ASDF_INSTALL_PATH/bin" &&
+  mv "$ASDF_DOWNLOAD_PATH" "$ASDF_INSTALL_PATH/$ASDF_INSTALL_VERSION" &&
+    ls -lah "$ASDF_INSTALL_PATH/$ASDF_INSTALL_VERSION" &&
+    chmod -R +x "$ASDF_INSTALL_PATH/$ASDF_INSTALL_VERSION/bin" &&
     echo "mongosh has been installed." &&
     exit 0
 ) || (
-  rm -rf "$ASDF_INSTALL_PATH" &&
+  rm -rf "${ASDF_INSTALL_PATH:?}/$ASDF_INSTALL_VERSION" "$ASDF_DOWNLOAD_PATH" &&
     echo "An error ocurred while installing mongosh $ASDF_INSTALL_VERSION" 1>&2 &&
     exit 1
 )
