@@ -7,7 +7,17 @@ set -e
 
 case "$(uname -s)" in
   "Darwin")
-    RELEASE_FILENAME="mongosh-$ASDF_INSTALL_VERSION-darwin.zip"
+    case "$(uname -m)" in
+      "x86_64")
+        RELEASE_FILENAME="mongosh-$ASDF_INSTALL_VERSION-darwin-x64.zip"
+        ;;
+      "arm64")
+        RELEASE_FILENAME="mongosh-$ASDF_INSTALL_VERSION-darwin-arm64.zip"
+        ;;
+      *)
+        "Unknown machine hardware" 1>&2 && exit 1
+        ;;
+    esac
     ;;
   "Linux")
     RELEASE_FILENAME="mongosh-$ASDF_INSTALL_VERSION-linux.tgz"
