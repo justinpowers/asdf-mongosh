@@ -20,7 +20,17 @@ case "$(uname -s)" in
     esac
     ;;
   "Linux")
-    RELEASE_FILENAME="mongosh-$ASDF_INSTALL_VERSION-linux.tgz"
+    case "$(uname -m)" in
+      "x86_64")
+        RELEASE_FILENAME="mongosh-$ASDF_INSTALL_VERSION-linux-x64.tgz"
+        ;;
+      "arm64")
+        RELEASE_FILENAME="mongosh-$ASDF_INSTALL_VERSION-linux-arm64.tgz"
+        ;;
+      *)
+        "Unknown machine hardware" 1>&2 && exit 1
+        ;;
+    esac
     ;;
   *)
     echo "Unknown operating system" 1>&2 && exit 1
