@@ -8,7 +8,7 @@ set -e
 : "${ASDF_DOWNLOAD_PATH:?"Missing ASDF_DOWNLOAD_PATH"}"
 
 # shellcheck source=SCRIPTDIR/download
-[ -f "$ASDF_DOWNLOAD_PATH" ] || . "$(dirname "$0")/download"
+[ -f "$ASDF_DOWNLOAD_PATH" ] || . "$(dirname "$0")/download"  || ( echo "Download failed." >&2 && exit 1 )
 
 (
   mv "$ASDF_DOWNLOAD_PATH/bin" "$ASDF_INSTALL_PATH" &&
