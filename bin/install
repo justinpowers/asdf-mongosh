@@ -25,7 +25,6 @@ install() {
   fi
 
   mv "$ASDF_DOWNLOAD_PATH/bin" "$ASDF_INSTALL_PATH" &&
-    find "$ASDF_INSTALL_PATH" &&
     chmod -R +x "$ASDF_INSTALL_PATH/bin" &&
     find "$ASDF_DOWNLOAD_PATH" -delete
 
