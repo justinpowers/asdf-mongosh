@@ -11,7 +11,10 @@ source "$(dirname "$0")/lib"
 install() {
   if [ ! -d "$ASDF_DOWNLOAD_PATH" ]; then
     # shellcheck source=SCRIPTDIR/download
-    source "$(dirname "$0")/download" || (echo "Downloading mongosh $ASDF_INSTALL_VERSION failed" 1>&2; exit1)
+    source "$(dirname "$0")/download" || (
+      echo "Downloading mongosh $ASDF_INSTALL_VERSION failed" 1>&2
+      exit 1
+    )
   fi
 
   # Workaround for change in mongosh release packaging, see:
