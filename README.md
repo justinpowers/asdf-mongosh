@@ -14,7 +14,7 @@
 
 ## Plugin Dependencies
 
-- `curl`, `git` - for mongosh downloads from upstream releases
+- `curl` - for mongosh downloads from upstream releases
 
 ## Install
 

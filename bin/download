@@ -1,48 +1,14 @@
-#!/bin/bash
-
-set -e
+#!/usr/bin/env bash
 
 : "${ASDF_INSTALL_VERSION:?"Missing ASDF_INSTALL_VERSION"}"
 : "${ASDF_DOWNLOAD_PATH:?"Missing ASDF_DOWNLOAD_PATH"}"
 
-case "$(uname -s)" in
-  "Darwin")
-    case "$(uname -m)" in
-      "x86_64")
-        RELEASE_FILENAME="mongosh-$ASDF_INSTALL_VERSION-darwin-x64.zip"
-        ;;
-      "arm64")
-        RELEASE_FILENAME="mongosh-$ASDF_INSTALL_VERSION-darwin-arm64.zip"
-        ;;
-      *)
-        "Unknown machine hardware" 1>&2 && exit 1
-        ;;
-    esac
-    ;;
-  "Linux")
-    case "$(uname -m)" in
-      "x86_64")
-        RELEASE_FILENAME="mongosh-$ASDF_INSTALL_VERSION-linux-x64.tgz"
-        ;;
-      "arm64")
-        RELEASE_FILENAME="mongosh-$ASDF_INSTALL_VERSION-linux-arm64.tgz"
-        ;;
-      *)
-        "Unknown machine hardware" 1>&2 && exit 1
-        ;;
-    esac
-    ;;
-  *)
-    echo "Unknown operating system" 1>&2 && exit 1
-    ;;
-esac
+# shellcheck source=SCRIPTDIR/lib
+. "$(dirname "$0")/lib"
 
-(
-  curl -fsSL "https://github.com/mongodb-js/mongosh/releases/download/v$ASDF_INSTALL_VERSION/$RELEASE_FILENAME" |
-    tar xzf - -C "$ASDF_DOWNLOAD_PATH" &&
-    exit 0
-) || (
-  echo "Download failed" 1>&2 &&
-    rm -rf "$ASDF_DOWNLOAD_PATH" &&
-    exit 1
-)
+download() {
+  curl -fsSL "$(get_download_url)" | tar xzf - -C "$ASDF_DOWNLOAD_PATH"
+  exit $?
+}
+
+download
